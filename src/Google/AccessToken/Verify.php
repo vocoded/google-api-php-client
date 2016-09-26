@@ -208,7 +208,7 @@ class Google_AccessToken_Verify
       $jwtClass = 'Firebase\JWT\JWT';
     }
 
-    if (property_exists($jwtClass, 'leeway')) {
+    if (property_exists($jwtClass, 'leeway') && $jwtClass::$leeway === 0) {
       // adds 1 second to JWT leeway
       // @see https://github.com/google/google-api-php-client/issues/827
       $jwtClass::$leeway = 1;
